@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# AUTH_USER_MODEL = 'api.StudentModel'
+AUTH_USER_MODEL = 'api.StudentModel'
 
 
 # Application definition
@@ -41,10 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
+    'todo',
     'rest_framework',
-    'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist'
-    
+    'rest_framework_simplejwt',    
 ]
 
 REST_FRAMEWORK = {
@@ -89,8 +88,12 @@ WSGI_APPLICATION = 'auth.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'todo',
+        'USER': 'todo_user',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '5432',    
     }
 }
 
